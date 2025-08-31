@@ -1,0 +1,6 @@
+Hint: Google FSOP
+
+--------------------
+Setup: The vuln/exploits should work on a standard Hacky2-like Docker container using libc-2.36 (from the materials section)
+The provided Dockerfile removes all saved logs every hour to prevent excessive disk usage, but should be functionally identical to the provided Dockerfile for Hacky2 from the materials section. 
+

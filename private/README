@@ -1,0 +1,10 @@
+Setup:
+The proper get_flag binary should be added to the folder containing the Dockerfile, and the corresponding line in the Dockerfile uncommented.
+The FNETD_PASSWORD env variable should also be replaced with a proper password.
+Functionally the Docker container should behave like Hacky2, just with an added cronjob removing all files in /tmp/sLogs/ (where Logs may be stored), at the start of every hour (This can be reduced to every minute in the Dockerfile if every hour is not enough.)(If this somehow does not work, a standard Hacky2 instance would also work [but this may open up the possibility of teams maliciously or accidently consuming a lot of disk space by writing a lot of logs to disk])
+
+
+Pwns:
+The main pwn expects "libc-2.36.so" to be present in the same directory. If this does not work, we can also provide a pwn with fixed offsets. Furthermore, the "passw" variable will have to be changed to the actual fnetd password used. pwn.py works with ./pwn.py <host> <port>, but will default to localhost 1337 if no arguments are provided.
+
+We have implemented pwns based on three different attack paths, which are provided in the folder "altPwns". The pwn.py in the "private" folder is identical to pwnHouseOfApple2.py. Everything written for pwn.py also applies to the alternative solution paths.
